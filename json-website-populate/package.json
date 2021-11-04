@@ -1,0 +1,27 @@
+{
+  "name": "browser-fetch-json",
+  "version": "1.0.0",
+  "description": "Populate a website with details of recipes!",
+  "main": "index.js",
+  "scripts": {
+    "live": "parcel src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FbW-E05-2/Browser-fetch-JSON.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FbW-E05-2/Browser-fetch-JSON/issues"
+  },
+  "homepage": "https://github.com/FbW-E05-2/Browser-fetch-JSON#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "parcel": "^2.0.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.0.0"
+  }
+}
