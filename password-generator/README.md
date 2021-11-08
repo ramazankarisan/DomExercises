@@ -8,7 +8,6 @@
 
 - In the input, a number which shows the length of the password should be entered.
 
-Create a password generator WebApp with the following instructions:
 
 ## What was provided:
 
