@@ -13,4 +13,4 @@ Create a list of your favourite destinations with a button to toggle the list
 
 ## What I did:
 
-- completed the task and created `main.js` and `style.css`
+- completed the tasks and created `main.js` and `style.css`
