@@ -1,0 +1,24 @@
+{
+  "name": "spa-fetch-api-assignment-ramazankarisan",
+  "version": "1.0.0",
+  "description": "Create a webpage to show the users from a given API [reqres](https://reqres.in/). In the webpage you should   retrieve a list of  users similar to this :",
+  "main": "app.js",
+  "scripts": {
+    "test": "parcel ./index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FbW-E05-2/spa-fetch-api-assignment-ramazankarisan.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FbW-E05-2/spa-fetch-api-assignment-ramazankarisan/issues"
+  },
+  "homepage": "https://github.com/FbW-E05-2/spa-fetch-api-assignment-ramazankarisan#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "parcel": "^2.0.1"
+  }
+}

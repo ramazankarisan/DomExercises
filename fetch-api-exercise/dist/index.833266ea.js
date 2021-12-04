@@ -6,7 +6,7 @@
 // anything defined in a previous bundle is accessed via the
 // orig method which is the require for previous bundles
 
-(function(modules, entry, mainEntry, parcelRequireName, globalName) {
+(function (modules, entry, mainEntry, parcelRequireName, globalName) {
   /* eslint-disable no-undef */
   var globalObject =
     typeof globalThis !== 'undefined'
@@ -99,9 +99,9 @@
   newRequire.modules = modules;
   newRequire.cache = cache;
   newRequire.parent = previousRequire;
-  newRequire.register = function(id, exports) {
+  newRequire.register = function (id, exports) {
     modules[id] = [
-      function(require, module) {
+      function (require, module) {
         module.exports = exports;
       },
       {},
@@ -109,7 +109,7 @@
   };
 
   Object.defineProperty(newRequire, 'root', {
-    get: function() {
+    get: function () {
       return globalObject[parcelRequireName];
     },
   });
@@ -131,7 +131,7 @@
 
       // RequireJS
     } else if (typeof define === 'function' && define.amd) {
-      define(function() {
+      define(function () {
         return mainExports;
       });
 
@@ -140,12 +140,12 @@
       this[globalName] = mainExports;
     }
   }
-})({"grPCQ":[function(require,module,exports) {
+})({"1bEO8":[function(require,module,exports) {
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "4a236f9275d0a351";
-module.bundle.HMR_BUNDLE_ID = "7a913ea066a7346f";
+module.bundle.HMR_BUNDLE_ID = "635c849b833266ea";
 "use strict";
 function _createForOfIteratorHelper(o, allowArrayLike) {
     var it;
@@ -458,81 +458,33 @@ function hmrAcceptRun(bundle, id) {
     acceptedAssets[id] = true;
 }
 
-},{}],"cdtrO":[function(require,module,exports) {
-// The following line makes sure your styles are included in the project. Don't remove this.
-// Import any additional modules you want to include below \/
+},{}],"lzYRN":[function(require,module,exports) {
 var _bootstrapMinCss = require("bootstrap/dist/css/bootstrap.min.css");
-var _dataJson = require("../../data.json");
-// import dataJson  from './data';
-// const dataObj = JSON.parse(dataJson)
-var _mainScss = require("../styles/main.scss");
-// \/ All of your javascript should go here \/
-let sectionCakes = document.querySelector('#cakes');
-let sectionBiscuits = document.querySelector('#biscuits');
-let sectionBread = document.querySelector('#bread');
-function populatePage(arr) {
-    const myLargestDiv = document.createElement('div');
-    myLargestDiv.classList.add('row');
-    myLargestDiv.classList.add('border-bottom');
-    myLargestDiv.classList.add('py-3');
-    myLargestDiv.classList.add('my-3');
-    myLargestDiv.classList.add('border-warning');
-    for(let i = 0; i < arr.length; i++){
-        const mySecondDiv = document.createElement('div');
-        const myDiv = document.createElement('div');
-        const myImg = document.createElement('img');
-        const myInnerDiv = document.createElement('div');
-        const myTitle = document.createElement('h5');
-        const myAuthor = document.createElement('p');
-        const myIngredients = document.createElement('p');
-        mySecondDiv.classList.add('col-4');
-        myDiv.classList.add('card');
-        myDiv.classList.add('h-100');
-        myDiv.style.width = '18rem';
-        myImg.setAttribute('src', arr[i].image);
-        myImg.classList.add('card-img-top');
-        myImg.style.height = '200px';
-        myInnerDiv.classList.add('card-body');
-        myTitle.classList.add('card-title');
-        myTitle.innerText = arr[i].title;
-        myTitle.classList.add('card-text');
-        myAuthor.innerText = arr[i].author;
-        myAuthor.classList.add('border-bottom');
-        myAuthor.classList.add('py-2');
-        myIngredients.classList.add('card-text');
-        myIngredients.innerText = arr[i].ingredients;
-        myLargestDiv.appendChild(mySecondDiv);
-        mySecondDiv.appendChild(myDiv);
-        myDiv.appendChild(myImg);
-        myDiv.appendChild(myInnerDiv);
-        myInnerDiv.appendChild(myTitle);
-        myInnerDiv.appendChild(myAuthor);
-        myInnerDiv.appendChild(myIngredients);
-    }
-    let nameObj = arr[0].type;
-    switch(nameObj){
-        case 'cakes':
-            sectionCakes.appendChild(myLargestDiv);
-            break;
-        case 'biscuits':
-            sectionBiscuits.appendChild(myLargestDiv);
-            break;
-        case 'bread':
-            sectionBread.appendChild(myLargestDiv);
-            break;
-        default:
-            console.log('hey error');
+async function getUsers() {
+    try {
+        const usersObj = await fetch('https://reqres.in/api/users/');
+        const usersInfo = await usersObj.json();
+        usersInfo.data.map((item)=>{
+            document.querySelector('.row').innerHTML += `
+      <div class="col">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title ">${item.first_name}</h5>
+            <p class="card-text">
+              ${item.email}
+            </p>
+            
+          </div>
+          <img src="${item.avatar}" class="card-img-bottom" alt="..." />
+        </div>
+      </div>`;
+        });
+    } catch (error) {
+        document.querySelector('.row').innerHTML += `<div class="err-msg">error: ${error.message}</div>`;
     }
 }
-window.addEventListener('load', ()=>{
-    populatePage(_dataJson.cakes);
-    populatePage(_dataJson.biscuits);
-    populatePage(_dataJson.bread);
-});
+getUsers();
 
-},{"bootstrap/dist/css/bootstrap.min.css":"5dhe6","../styles/main.scss":"e4nVD","../../data.json":"vRbhQ"}],"5dhe6":[function() {},{}],"e4nVD":[function() {},{}],"vRbhQ":[function(require,module,exports) {
-module.exports = JSON.parse("{\"cakes\":[{\"type\":\"cakes\",\"author\":\"John Smith\",\"title\":\"Deliciously Decadent\",\"ingredients\":[\"chocolate\",\"milk\",\"flour\",\"vegetable oil\",\"sugar\",\"butter\"],\"image\":\"https://ichef.bbci.co.uk/food/ic/food_16x9_832/recipes/easy_chocolate_cake_31070_16x9.jpg\"},{\"type\":\"cakes\",\"author\":\"Jane Doe\",\"title\":\"Ridiculous Raspberry\",\"ingredients\":[\"raspberries\",\"milk\",\"flour\",\"vegetable oil\",\"sugar\",\"butter\"],\"image\":\"https://thecakeblog.com/wp-content/uploads/2017/01/chocolate-raspberry-cake-thumb-sm.jpg\"},{\"type\":\"cakes\",\"author\":\"Tim Thomas\",\"title\":\"Famous NY Cheese Cake\",\"ingredients\":[\"cream cheese\",\"milk\",\"flour\",\"sugar\",\"butter\",\"biscuits\"],\"image\":\"https://www.tasteofhome.com/wp-content/uploads/2017/10/Vanilla-Cheesecake_EXPS_THLS17_205125_D02_23_3b-1.jpg\"}],\"biscuits\":[{\"type\":\"biscuits\",\"author\":\"Vincent Grey\",\"title\":\"Ginger Snaps\",\"ingredients\":[\"ginger\",\"flour\",\"butter\",\"sugar\"],\"image\":\"https://www.joyofbaking.com/images/facebook/gingersnaps1.jpg\"},{\"type\":\"biscuits\",\"author\":\"Earl Senseo\",\"title\":\"Short Bread\",\"ingredients\":[\"sugar\",\"flour\",\"butter\"],\"image\":\"https://ichef.bbci.co.uk/food/ic/food_16x9_832/recipes/butter_shortbread_74896_16x9.jpg\"},{\"type\":\"biscuits\",\"author\":\"Lily Shanes\",\"title\":\"Millionaires\",\"ingredients\":[\"sugar\",\"flour\",\"butter\",\"condensed milk\",\"milk chocolate\"],\"image\":\"https://i0.wp.com/everydaycooks.co.uk/wp-content/uploads/2017/10/millionaire-shortbread-h2.jpg?fit=1800%2C1360&ssl=1\"}],\"bread\":[{\"type\":\"bread\",\"author\":\"Martin Zammit\",\"title\":\"Sourdough\",\"ingredients\":[\"water\",\"flour\",\"salt\",\"yeast\"],\"image\":\"https://amyinthekitchen.com/wp-content/uploads/2018/11/Beginners-Sourdough-Bread-AITK.jpg\"},{\"type\":\"bread\",\"author\":\"Pia Falzon\",\"title\":\"Beautiful Baguettes\",\"ingredients\":[\"water\",\"flour\",\"salt\",\"yeast\"],\"image\":\"https://www.thespruceeats.com/thmb/mCTU2pQ6A-WZ7qQqxH4C8gSbR9E=/1428x1428/smart/filters:no_upscale()/GettyImages-636741221-e5442b2f0b3a4d33a26ebf7deb237fed.jpg\"},{\"type\":\"bread\",\"author\":\"Maria Mifsud\",\"title\":\"The best thing since sliced bread\",\"ingredients\":[\"water\",\"flour\"],\"image\":\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdfaG5Cv4oOjewDMyFitnCpsOBH3ifA5fkycKUy0_y_4Vv2P4IkA\"}]}");
+},{"bootstrap/dist/css/bootstrap.min.css":"5dhe6"}],"5dhe6":[function() {},{}]},["1bEO8","lzYRN"], "lzYRN", "parcelRequirebaf4")
 
-},{}]},["grPCQ","cdtrO"], "cdtrO", "parcelRequire957d")
-
-//# sourceMappingURL=index.66a7346f.js.map
+//# sourceMappingURL=index.833266ea.js.map
